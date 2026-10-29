@@ -61,6 +61,8 @@ That is to say, if `'a` can be replaced by a longer lifetime and shrink down to 
 
 For example, given two lifetimes (`'long` and `'short`), because we can shrink `'long` down to suit `'short`, this means that any reference with any type that has the lifetime `'long` can also shrink down to suit `'short`.
 
+In short, whenever the word "covariant" is used, it simply means "`&'a T`'s lifetime can be shrinked like lifetime `'a` can"
+
 ```rust
 'long: 'short
 `&'long T: &'short T`
@@ -93,3 +95,5 @@ Then we pass a reference of both `hello` and `world` into `assign`.
 The problem is that, because `'static: 'world`, this means that `'static` would outlive world, and so we're assigning a shorter lifetime to a `'static` one.
 
 Because any mutable reference with lifetime `'a` is invariant over `'a`, this is a problem, for example, if we did assign `hello` to the lifetime of `world`, then this means that it would be dropped way before, that isn't what `'static` promises.
+
+In short, whenever the word "invariant" is used, it simply means "`&mut 'a T`'s lifetime can't be shrinked like lifetime `'a` can"

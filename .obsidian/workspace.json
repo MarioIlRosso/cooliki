@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "20b626befeeca365",
+        "id": "5da54ab3fcc6a556",
         "type": "tabs",
         "children": [
           {
-            "id": "346872b6b5e15be0",
+            "id": "67fb95b87fb44b39",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rust/Conversions.md",
+                "file": "Rust/Lifetimes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Conversions"
+              "title": "Lifetimes"
             }
           }
         ]
@@ -186,11 +186,25 @@
       "bases:Create new base": false
     }
   },
-  "active": "346872b6b5e15be0",
+  "active": "67fb95b87fb44b39",
   "lastOpenFiles": [
-    "Rust/Lifetimes.md",
     "Compiler/Main.md",
+    "Rust/Lifetimes.md",
+    "Rust/References.md",
+    "Rust/Common Misconceptions.md",
+    "Math/Law of the Excluded Middle (LEM).md",
     "Rust/Conversions.md",
+    "todo.md",
+    "Note.md",
+    "Assembly/Instructions.md",
+    "Math/Set Theory.md",
+    "Other/Mapping memory.md",
+    "Other",
+    "Assembly",
+    "[[References.md",
+    "DSTs.md",
+    "[Lifetimes.md",
+    "Math",
     "Rust",
     "Compiler",
     "Untitled.base",

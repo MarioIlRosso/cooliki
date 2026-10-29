@@ -15,6 +15,8 @@ an example is coercing a mutable reference:
 
 **NOTE**: Coercions aren't necessarily bijective, this means that they aren't always two way conversions, with the same example, you *can't* transform a `&T` into a `&mut T`.
 
+Another trivial example of a coercion is `T` into a `T`, an *identity coercion*.
+
 To get a full list of all coercions, [click here](https://doc.rust-lang.org/reference/type-coercions.html#coercion-types)
 ## Casts
 Casting is another way to reinterpret bits into another type.
@@ -28,4 +30,4 @@ let num: i32 = 10;
 let bigger_num: i64 = num as i64;
 ```
 
-**NOTE**: Casting is *not* always safe, for example, casting an `i64` into an `i32` is UB.
+**NOTE**: Casting is *not* always safe, for example, casting an `i64` into an `i32` could lead to unexpected results, as it could truncate data.
