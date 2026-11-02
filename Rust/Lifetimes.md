@@ -5,9 +5,9 @@ Suppose we have this function in rust, a lifetime is the period of time between 
 
 ```rust
 fn pretty_print(s: &str) {
-	// Here, &s starts.
+	// Here, &s's lifetime starts.
 	println!("This is value {}", s);
-	// Here, &s ends.
+	// Here, &s's lifetime ends.
 }
 ```
 
@@ -50,50 +50,56 @@ When we say that a lifetime `'a` outlives lifetime `'b`, it's written as
 $$
 'a: 'b
 $$
+## Subtyping
+To understand the following concepts, we first need to define what subtyping is:
+
+> [!warning] Warning
+> The following section assumes a Rust context, but does use math.
+
+Subtyping is a way to define a relation ship between lifetimes in rust.
+We can define all lifetimes of a program as a set, containing all lifetimes of the minimum value, containing more sets with larger value, which includes a set `'static`, containing the lifetimes with the largest amount of lifetime.
+
+All lifetimes in rust follow this simple property:
+lets define `'long` and `'short` as two lifetimes.
+if `'long <: 'short`, then you can replace `'short` with `'long`, but not the other way.
+
+`'long <: 'short` means that `'long` is a subtype of `'short`, that is to say, `'long` is contained in set `'short`.
+
+Note that the `<:` symbol doesn't define the size of a lifetime here by itself, but it defines the relationship in the set.
 ## Variance
-Variance is a way to express the relationship between two types.
+Before this point, we only talked about lifetimes, but lifetimes are always related to some type `T` that is a reference or pointer.
+
+> [!warning] Warning
+> This section requires reading [[Common Misconceptions#`T` is always owned, `&T` is always a reference, `&mut T` is always a mutable reference|this]]
+
+Variance, in rust, defines the relationship of two types (a sub type, and a super type), when inside a container.
+
+Let's define `T` and `U` as types, and we'll also define a container type `F` that contains these two.
+
 ### Covariance
-Let `T` be any type.
+If the relationship between `T` and `U` is preserved when both are contained in `F`, then we say that `F<T>` is covariant over `U` (or `F<T>` is covariant with respect of `U`).
 
-Automatically, `&'a T` becomes covariant over `'a`.
-
-That is to say, if `'a` can be replaced by a longer lifetime and shrink down to suit `'a`, then `&'a T` can also be replaced by said lifetime.
-
-For example, given two lifetimes (`'long` and `'short`), because we can shrink `'long` down to suit `'short`, this means that any reference with any type that has the lifetime `'long` can also shrink down to suit `'short`.
-
-In short, whenever the word "covariant" is used, it simply means "`&'a T`'s lifetime can be shrinked like lifetime `'a` can"
-
+For example, here we use a reference as a container:
 ```rust
-'long: 'short
-`&'long T: &'short T`
-```
-### Invariance
-Let `T` be any type.
-
-Automatically, `&mut 'a T` becomes invariant over the lifetime of `'a`. We can't modify the lifetime `'a` in anyway (for example, using covariance to shrink it).
-
-For understanding why this is the case, let's implement a function
-```rust
-fn assign<T>(old_value: &mut T, new_value: T) {
-	*old_value = new_value;
-}
-
-fn main() {
-    let mut hello: &'static str = "hello";
-    let world = String::from("world");
-    assign(&mut hello, &world);
-    println!("{hello}");
-}
-
-/// This code was inspired by the rustonomicon (Chapter 3.8)
+'long: 'short (or 'long <: 'short)
+&'long T: &'short T (or &'long T <: &'short T)
 ```
 
-This won't compile, the problem is that we are telling the compiler that `hello` is of a `'static` lifetime, and then we assign another variable which is `world`.
+because `&T` is covariant over `T` (and by extension `&T`), the subtyping of the lifetimes is also valid when they're behind an immutable reference.
 
-Then we pass a reference of both `hello` and `world` into `assign`.
+The definition of covariant is, simply put: "`F<T>` is covariant over `F<U>` when the relationship of `T` and `U` is preserved."
 
-The problem is that, because `'static: 'world`, this means that `'static` would outlive world, and so we're assigning a shorter lifetime to a `'static` one.
+### Examples of covariance
+`&T`, `Vec<T>`, and `Box<T>` are all covariant over `T`.
+## Invariance
+If there's a relationship between `T` and `U`, but it's not preserved when both are contained in `F`, and there's no relationship between `F<T>` and `F<U>`, then we say that `F<T>` is invariant over `U` (or `F<T>` is invariant with respect of `U`).
 
-Because any mutable reference with lifetime `'a` is invariant over `'a`, this is a problem, for example, if we did assign `hello` to the lifetime of `world`, then this means that it would be dropped way before, that isn't what `'static` promises.
+For example, here we use a mutable reference as a container:
+```rust
+'long: 'short (or 'long <: 'short)
+// "!:" is the reverse of ":"
+// "!<:" means "not in subtype" (reverse of "<:")
+&'long T !: &'short T (or &'long T !<: &'short T)
+```
 
-In short, whenever the word "invariant" is used, it simply means "`&mut 'a T`'s lifetime can't be shrinked like lifetime `'a` can"
+The definition of covariant is, simply put: "`F<T>` is covariant over `F<U>` when the relationship of `T` and `U` isn't preserved."
