@@ -22,3 +22,7 @@ While `&'a T` means "a value `T` with lifetime `'a`", `T: 'a'` means "a value `T
 Although they're not equal, `&'a T` implies that `T: 'a`, that is the case because "`T` is of lifetime `'a`" and "`T` lives as long as `'a`" implying each other.
 #### [Reference](https://github.com/pretzelhammer/rust-blog/blob/master/posts/common-rust-lifetime-misconceptions.md#3-a-t-and-t-a-are-the-same-thing)
 From "Common Rust Lifetime Misconceptions"
+## If statements
+If statements are expressions, in rust, if a piece of code returns a value, it's deemed an "expression".
+
+So saying "if statement" is technically incorrect

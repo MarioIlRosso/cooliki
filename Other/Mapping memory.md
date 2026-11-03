@@ -1,7 +1,7 @@
 Mapping memory means requesting the Operating System to add to your program memory space more memory.
 
 An example on this is the `brk/sbrk` `libc` function, or the `mmap` syscall.
-# Credits
+# Reference
 > [!cite] Credits
 > [The Goat](https://discord.com/channels/273534239310479360/273541522815713281/1566496663940501505) on discord for the knowledge
 

@@ -103,3 +103,6 @@ For example, here we use a mutable reference as a container:
 ```
 
 The definition of covariant is, simply put: "`F<T>` is covariant over `F<U>` when the relationship of `T` and `U` isn't preserved."
+# Reference
+> [!cite] Credits
+> Thanks to [zacryol](https://discord.com/users/693815604368506911), [harudagondi](https://discord.com/users/599833361565089802), and many others for helping me understand.
