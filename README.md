@@ -1,0 +1,1 @@
+This is basically a "Knowledge database" i use with obsidian, you can use it too, but its mostly for me
