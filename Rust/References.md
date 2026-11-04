@@ -1,8 +1,8 @@
 # Definition
-A reference is *usually* a pointer to a value (see [[References#Dynamically Sized Types|DSTs]] for more information).
+A reference is *usually* a [[Pointers|pointer]] to a value (see [[References#Dynamically Sized Types|DSTs]] for more information).
 All references in rust have a [[Lifetimes|Lifetime]].
 
-A size of a reference is the size of `usize`, that's because pointers differ in size based on the current platform: On a `64x` target, pointers will be 8 bytes wide (64 bits), while on a `32x` target, they will be 4 bytes wide (32 bits), other architectures may differ.
+a reference's size and a [[Pointers#Size|pointer's size]] are the same, exception for [[References#Dynamically Sized Types|DSTs]].
 ## Invariants
 Rust references are never dangling, and can't be null.
 ## Examples

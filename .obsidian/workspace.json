@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Assembly/Instructions.md",
+                "file": "Rust/Pointers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Instructions"
+              "title": "Pointers"
             }
           }
         ],
@@ -203,16 +203,17 @@
   },
   "active": "4bf17189c011f31e",
   "lastOpenFiles": [
-    "Compiler/Main.md",
     "Rust/References.md",
+    "Rust/Pointers.md",
     "Rust/Common Misconceptions.md",
-    "Rust/Lifetimes.md",
     "Rust/Conversions.md",
+    "Rust/Lifetimes.md",
+    "Assembly/Instructions.md",
+    "Compiler/Main.md",
+    "Other/Process Memory Layout.md",
     "Other/Mapping memory.md",
     "README.md",
-    "Other/Process Memory Layout.md",
     "Rust/E.md",
-    "Assembly/Instructions.md",
     "Math/Law of the Excluded Middle (LEM).md",
     "todo.md",
     "Note.md",
