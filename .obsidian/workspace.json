@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rust/Pointers.md",
+                "file": "Rust/Miscellaneous.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pointers"
+              "title": "Miscellaneous"
             }
           }
         ],
@@ -203,8 +203,9 @@
   },
   "active": "4bf17189c011f31e",
   "lastOpenFiles": [
-    "Rust/References.md",
     "Rust/Pointers.md",
+    "Rust/Miscellaneous.md",
+    "Rust/References.md",
     "Rust/Common Misconceptions.md",
     "Rust/Conversions.md",
     "Rust/Lifetimes.md",
