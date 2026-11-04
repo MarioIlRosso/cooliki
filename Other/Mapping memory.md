@@ -1,6 +1,8 @@
-Mapping memory means requesting the Operating System to add to your program memory space more memory.
+Mapping memory means requesting the Operating System to add more valid memory in your program's virtual address space.
 
-An example on this is the `brk/sbrk` `libc` function, or the `mmap` syscall.
+When a process starts, a small amount of memory is mapped, compared to the giant address space the OS provides.
+
+The `brk/sbrk` `libc` function, or the `mmap` syscall, can map memory for example.
 # Reference
 > [!cite] Credits
 > [The Goat](https://discord.com/channels/273534239310479360/273541522815713281/1566496663940501505) on discord for the knowledge
