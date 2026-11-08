@@ -5,9 +5,14 @@ Suppose we have this function in rust, a lifetime is the period of time between 
 
 ```rust
 fn pretty_print(s: &str) {
-	// Here, &s's lifetime starts.
 	println!("This is value {}", s);
-	// Here, &s's lifetime ends.
+}
+
+// With lifetimes (expanded)
+fn pretty_print<'a>(s: &'a str) {
+	// Here, 'a starts.
+	println!("This is value {}", s);
+	// Here, 'a ends.
 }
 ```
 
@@ -17,7 +22,14 @@ e.g: `<'a>`, `<'b>`, `<'g>`, `<'d>`,
 **NOTE**: This naming convention is not enforced by the compiler.
 
 In the previous example, we didn't have to use lifetimes, as the compiler can understand the lifetime of `&s` automatically, this is called lifetime elision.
+# Lifetime elision
+Most of the time, we don't need to annotate lifetimes in functions, this is because the rust compiler can infer them, it uses a simple process:
 
+**1.** Every input that is a reference gets an unique lifetime
+**2.** If there's one input lifetime, it gets applied to all outputs
+**3.** If there are multiple input lifetimes, but one of them is `&self` or `&mut self`, then the lifetime of `&self` is applied to all outputs
+**4.** Lifetime elision can't infer lifetimes, and they need to be annotated.
+# Lifetimes in structs
 An example of actual usage of lifetimes is the following:
 ```rust
 struct Data<'a> {
@@ -105,4 +117,4 @@ For example, here we use a mutable reference as a container:
 The definition of covariant is, simply put: "`F<T>` is covariant over `F<U>` when the relationship of `T` and `U` isn't preserved."
 # Reference
 > [!cite] Credits
-> Thanks to [zacryol](https://discord.com/users/693815604368506911), [harudagondi](https://discord.com/users/599833361565089802), and many others for helping me understand.
+> Thanks to [zacryol](https://discord.com/users/693815604368506911), [harudagondi](https://discord.com/users/599833361565089802), and many others for helping me understand lifetimes.
