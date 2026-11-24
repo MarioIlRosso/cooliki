@@ -1,5 +1,5 @@
 # Definition
-In Rust, a lifetime is a way for the borrow checker to understand the lifetime of a reference at compile-time, making sure that a reference can never outlive the lifetime of the value it's referencing.
+In Rust, a lifetime is a way for the compiler to understand the lifetime of a reference at compile-time, making sure that a reference can never outlive the lifetime of the value it's referencing.
 ## Examples
 Suppose we have this function in rust, a lifetime is the period of time between the creation of the borrow of the value, and it's destruction.
 
@@ -94,7 +94,7 @@ If the relationship between `T` and `U` is preserved when both are contained in 
 For example, here we use a reference as a container:
 ```rust
 'long: 'short (or 'long <: 'short)
-&'long T: &'short T (or &'long T <: &'short T)
+&'long T <: &'short T
 ```
 
 because `&T` is covariant over `T` (and by extension `&T`), the subtyping of the lifetimes is also valid when they're behind an immutable reference.
@@ -111,7 +111,7 @@ For example, here we use a mutable reference as a container:
 'long: 'short (or 'long <: 'short)
 // "!:" is the reverse of ":"
 // "!<:" means "not in subtype" (reverse of "<:")
-&'long T !: &'short T (or &'long T !<: &'short T)
+&'long T !<: &'short T
 ```
 
 The definition of covariant is, simply put: "`F<T>` is covariant over `F<U>` when the relationship of `T` and `U` isn't preserved."

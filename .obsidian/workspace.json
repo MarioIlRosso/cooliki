@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rust/Miscellaneous.md",
+                "file": "Rust/Lifetimes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Miscellaneous"
+              "title": "Lifetimes"
             }
           }
         ],
@@ -201,38 +201,42 @@
       "bases:Create new base": false
     }
   },
-  "active": "4bf17189c011f31e",
+  "active": "2ee008db7648e633",
   "lastOpenFiles": [
+    "Assembly/Instructions.md",
+    "Rust/String and str.md",
+    "Rust/Pointers.md",
     "Rust/References.md",
     "Rust/Lifetimes.md",
-    "Rust/Common Misconceptions.md",
-    "Rust/Ownership.md",
-    "Rust/Pointers.md",
     "Rust/Provenance.md",
-    "Rust/Higher Ranked Trait Bounds.md",
+    "Rust/Function Traits.md",
     "Rust/Miscellaneous.md",
+    "Rust/Common Misconceptions.md",
+    "Rust/Undefined Behavior.md",
+    "Rust/Types/Box<T>.md",
+    "Rust/Higher Kinded Types and type theory.md",
+    "Rust/Higher Ranked Trait Bounds.md",
+    "Rust/Conversions.md",
+    "Rust/Rustbot.md",
+    "Rust/Ownership.md",
     "Other/Process Memory Layout.md",
     "Other/Mapping memory.md",
-    "Rust/Conversions.md",
-    "Assembly/Instructions.md",
+    "Rust/Types/! (Never).md",
+    "().md",
+    "Rust/Types/Rc<T>.md",
+    "Rust/Types",
     "Compiler/Main.md",
     "README.md",
     "Rust/E.md",
     "Math/Law of the Excluded Middle (LEM).md",
     "todo.md",
-    "Note.md",
-    "Math/Set Theory.md",
     "Other",
     "Assembly",
-    "[[References.md",
-    "DSTs.md",
-    "[Lifetimes.md",
     "Math",
     "Rust",
     "Compiler",
     "Untitled.base",
     "Compiler/Untitled",
-    "Compiler",
-    "Welcome.md"
+    "Compiler"
   ]
 }

@@ -2,5 +2,6 @@
   "nativeMenus": false,
   "accentColor": "#ff0000",
   "theme": "obsidian",
-  "cssTheme": "True Black"
+  "cssTheme": "True Black",
+  "showRibbon": true
 }
